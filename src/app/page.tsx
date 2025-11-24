@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "styled-components";
-import { TaskCard } from "@/components/TaskCard";
+import { TaskCard } from "@/components/TaskCard/TaskCard";
 import { demoTasks } from "@/data/demoTasks";
 
 const Title = styled.h1`
@@ -22,11 +22,13 @@ export default function Home() {
       {demoTasks.map((task) => (
         <TaskCard
           key={task.id}
-          image={task.image || "/task-default.png"}
+          image={task.image}
           title={task.title}
           description={task.description}
           date={task.date}
           progress={task.progress}
+          emoji={task.emoji}
+          profileImage={task.profileImage}
         />
       ))}
     </Wrapper>
