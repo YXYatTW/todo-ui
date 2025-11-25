@@ -1,13 +1,14 @@
-import React from "react";
+// import React, { useState } from "react";
 // import PropTypes from "prop-types";
 
-import { demoTasks } from "@/data/demoTasks";
 import { TaskCard } from "@/components/TaskCard/TaskCard";
 import styled from "styled-components";
-import type { TaskStatus } from "@/data/types";
+import type { Task, TaskStatus } from "@/data/types";
 
 interface StatusListProps {
   status: TaskStatus;
+  tasks: Task[];
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }
 
 const statusDisplayMap: Record<TaskStatus, string> = {
@@ -16,25 +17,15 @@ const statusDisplayMap: Record<TaskStatus, string> = {
   DONE: "Done",
 };
 
-function StatusList({ status }: StatusListProps) {
-  const filteredTasks = demoTasks.filter((task) => task.status === status);
+function StatusList({ status, tasks }: StatusListProps) {
   return (
     <StatusListStyle>
       <ListHeader>
         <ListTitle>{statusDisplayMap[status]}</ListTitle>
       </ListHeader>
 
-      {filteredTasks.map((task) => (
-        <TaskCard
-          key={task.id}
-          image={task.image}
-          title={task.title}
-          description={task.description}
-          date={task.date}
-          progress={task.progress}
-          emoji={task.emoji}
-          profileImage={task.profileImage}
-        />
+      {tasks.map((task) => (
+        <TaskCard key={task.id} task={task} />
       ))}
     </StatusListStyle>
   );

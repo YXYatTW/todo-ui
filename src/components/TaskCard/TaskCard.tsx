@@ -14,27 +14,16 @@ import {
   MoreInfoContainer,
   ProgressBarContainer,
 } from "./TaskCard.styles";
+import { Task } from "@/data/types";
 import TaskImage from "@/components/TaskCard/TaskImage";
 
 interface TaskCardProps {
-  image?: string;
-  title: string;
-  description: string;
-  date: string;
-  progress?: number;
-  emoji?: string;
-  profileImage?: string;
+  task: Task;
 }
 
-export const TaskCard = ({
-  image,
-  title,
-  description,
-  date,
-  progress = 0,
-  emoji,
-  profileImage,
-}: TaskCardProps) => {
+export const TaskCard = ({ task }: TaskCardProps) => {
+  const { title, image, emoji, date, profileImage, description, progress } =
+    task;
   return (
     <CardWrapper>
       <TaskImage image={image} />
