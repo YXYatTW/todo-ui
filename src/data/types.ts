@@ -11,6 +11,6 @@ export interface Task {
   date: string;
   progress: number;
   emoji: string;
-  profileImage: string;
+  profileImage?: string;
   image?: string;
 }

@@ -23,7 +23,7 @@ function TaskImage({ image }: ImagePlaceHolderProps) {
       style={{ objectFit: "cover", borderRadius: "6px" }}
     />
   ) : (
-    <ImagePlaceHolderStyled />
+    <ImagePlaceHolderStyled data-testid="task-image-placeholder" />
   );
 }
 

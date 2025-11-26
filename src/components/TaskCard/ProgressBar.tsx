@@ -14,7 +14,14 @@ const StyledProgressBar = styled.div<{ progress: number }>`
 `;
 
 const ProgressBar = ({ progress }: ProgressBarProps) => {
-  return <StyledProgressBar progress={progress ?? 0} />;
+  const value = progress ?? 0;
+  return (
+    <StyledProgressBar
+      progress={value}
+      data-testid="progress-bar"
+      data-progress={value.toString()}
+    />
+  );
 };
 
 export default ProgressBar;

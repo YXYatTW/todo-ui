@@ -38,6 +38,7 @@ export const TaskCard = ({ task }: TaskCardProps) => {
 
   return (
     <CardWrapper
+      data-testid="task-card"
       ref={setNodeRef}
       {...attributes}
       {...listeners}
