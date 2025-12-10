@@ -1,0 +1,41 @@
+# src/tasks/tasks.graphql
+
+type Task {
+    id: ID!
+    title: String!
+    description: String
+    status: String!
+    completed: Boolean!
+    date: String
+    progress: Int
+    emoji: String
+    profileImage: String
+}
+
+input CreateTaskInput {
+    title: String!
+    description: String
+    status: String
+}
+
+input UpdateTaskInput {
+    title: String
+    description: String
+    status: String
+    completed: Boolean
+    progress: Int
+    date: String
+    emoji: String
+    profileImage: String
+}
+
+type Query {
+    tasks: [Task!]!
+    task(id: ID!): Task
+}
+
+type Mutation {
+    create(createTaskInput: CreateTaskInput!): Task!
+    update(id: ID!, input: UpdateTaskInput!): Task!
+#    removeTask(id: ID!): Task
+}
