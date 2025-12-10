@@ -1,5 +1,0 @@
-[00:00:00.565] Server  LOG      ✓ Ready in 406ms
-[00:00:03.067] Server  WARN    styled-components: it looks like an unknown prop "progress" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.)
-[00:00:03.371] Browser WARN    styled-components: it looks like an unknown prop "progress" is being sent through to the DOM, which will likely trigger a React console error. If you would like automatic filtering of unknown props, you can opt-into that behavior via `<StyleSheetManager shouldForwardProp={...}>` (connect an API like `@emotion/is-prop-valid`) or consider using transient props (`$` prefix for automatic filtering.)
-[00:00:03.371] Browser WARN    Image with src "/fuji.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading

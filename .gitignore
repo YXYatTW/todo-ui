@@ -4,87 +4,87 @@
 node_modules/
 **/node_modules/
 
-# yarn / pnpm / npm logs
+# Package manager logs
 yarn-error.log
 pnpm-debug.log
 npm-debug.log
 
-# dotenv
+# Environment variables
 .env
 .env.*
 !.env.example
 
-# Dist / build outputs
+# =====================================
+# Build outputs (UI + Backend)
+# =====================================
 dist/
 build/
 out/
-coverage/
-.cache/
-.next/
-.nuxt/
-.svelte-kit/
 
-# Temp
+# Next.js
+**/.next/
+**/out/
+
+# NestJS
+**/dist/
+
+# Svelte / Nuxt / other
+**/.nuxt/
+**/.svelte-kit/
+
+# Codegen
+**/generated/
+**/generated/**
+
+# Common caching
+.cache/
+**/.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# Coverage
+coverage/
+**/coverage/
+.nyc_output/
+
+# =====================================
+# Temporary files
+# =====================================
 tmp/
 temp/
 *.tmp
 
+# =====================================
 # Logs
+# =====================================
 logs/
 *.log
 *.log.*
 log/
 debug.log
 
+# =====================================
 # OS
+# =====================================
 .DS_Store
 Thumbs.db
 
-# IDE
+# =====================================
+# IDE / Editor
+# =====================================
 .vscode/
-.vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
+**/.vscode/
 .idea/
 *.iml
 
+# =====================================
 # TypeScript
+# =====================================
 *.tsbuildinfo
 
-# Jest
-.coverage/
-
-# Cypress
-.cypress-cache/
-cypress/videos/
-cypress/screenshots/
-
-# Build tools
-.cache/
-.parcel-cache/
-.eslintcache
-.stylelintcache
-
-# PM2
-.pids
-*.pid
-*.seed
-*.pid.lock
-
-# Prisma
-prisma/migrations/
-.prisma/
-
-# NestJS
-**/dist/
-**/.cache/
-
-# GraphQL Codegen
-generated/
-types/
-**/generated/
-**/types/
-
+# =====================================
 # Docker
+# =====================================
 *.tar
 docker-data/
