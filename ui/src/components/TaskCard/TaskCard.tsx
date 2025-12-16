@@ -14,7 +14,7 @@ import {
   MoreInfoContainer,
   ProgressBarContainer,
 } from "./TaskCard.styles";
-import { Task } from "@/data/types";
+import { Task } from "@/types/types";
 import TaskImage from "@/components/TaskCard/TaskImage";
 import { useSortable } from "@dnd-kit/sortable";
 

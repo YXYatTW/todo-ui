@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ApolloWrapper } from "@/components/ApolloWrapper";
 
 export const metadata: Metadata = {
   title: "Kanban App",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ApolloWrapper>{children}</ApolloWrapper>
+      </body>
     </html>
   );
 }

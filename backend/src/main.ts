@@ -4,7 +4,7 @@ The class containing SpringApplication.run(App.class, args);.
 
 Purpose:
 This bootstraps the application.
-It creates the Nest factory and listens on port 3000.
+It creates the Nest factory and listens on port 3001.
 */
 
 import { NestFactory } from '@nestjs/core';

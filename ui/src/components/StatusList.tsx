@@ -3,7 +3,7 @@ import React from "react";
 
 import { TaskCard } from "@/components/TaskCard/TaskCard";
 import styled from "styled-components";
-import type { Task, TaskStatus } from "@/data/types";
+import type { Task, TaskStatus } from "@/types/types";
 import { useDroppable } from "@dnd-kit/core";
 
 interface StatusListProps {

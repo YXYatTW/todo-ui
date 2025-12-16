@@ -4,6 +4,7 @@ type Task {
     id: ID!
     title: String!
     description: String
+    image: String
     status: String!
     completed: Boolean!
     date: String

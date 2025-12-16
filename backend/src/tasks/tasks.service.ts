@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 // import { CreateTaskInput } from './dto/create-task.input';
 import type { Task, UpdateTaskInput } from '../types/graphql';
 
-
 @Injectable()
 export class TasksService {
   private tasks: Task[] = [
@@ -20,12 +19,47 @@ export class TasksService {
     {
       id: '2',
       title: 'Task 2',
-      description: 'Backend setup',
-      status: 'IN_PROGRESS',
+      description: 'This is a description of task 2',
+      image: '/fuji.png',
+      status: 'DONE',
+      completed: true,
+      date: '2024-07-05',
+      progress: 95,
+      emoji: '😭',
+      profileImage: '/profile02.png',
+    },
+    {
+      id: '3',
+      title: 'Task 3',
+      description: 'This is a description of task 3',
+      status: 'INPROGRESS',
       completed: false,
-      date: '2024-07-02',
-      progress: 10,
-      emoji: '🚀',
+      date: '2024-07-01',
+      progress: 45,
+      emoji: '😊',
+      profileImage: '/profile01.png',
+    },
+    {
+      id: '4',
+      title: 'Task 4',
+      description: 'This is a description of task 4',
+      status: 'TODO',
+      completed: false,
+      date: '2024-07-01',
+      progress: 45,
+      emoji: '😊',
+      profileImage: '/profile01.png',
+    },
+    {
+      id: '5',
+      title: 'Task 5',
+      description: 'This is a description of task 5',
+      image: '/fuji.png',
+      status: 'DONE',
+      completed: true,
+      date: '2024-07-05',
+      progress: 85,
+      emoji: '😭',
       profileImage: '/profile02.png',
     },
   ];
