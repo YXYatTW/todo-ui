@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 // import PropTypes from "prop-types";
 
-import { TaskCard } from "@/components/TaskCard/TaskCard";
-import styled from "styled-components";
-import type { Task, TaskStatus } from "@/data/types";
-import { useDroppable } from "@dnd-kit/core";
+import { TaskCard } from '@/components/TaskCard/TaskCard';
+import styled from 'styled-components';
+import type { Task, TaskStatus } from '@/data/types';
+import { useDroppable } from '@dnd-kit/core';
 
 interface StatusListProps {
   status: TaskStatus;
   tasks: Task[];
-  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
+  // updateTaskStatus: (taskId: string, newStatus: TaskStatus) => void;
 }
 
 const statusDisplayMap: Record<TaskStatus, string> = {
-  TODO: "To Do",
-  INPROGRESS: "In Progress",
-  DONE: "Done",
+  TODO: 'To Do',
+  INPROGRESS: 'In Progress',
+  DONE: 'Done',
 };
 
 function StatusList({ status, tasks }: StatusListProps) {

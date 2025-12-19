@@ -1,6 +1,6 @@
-export type TaskStatus = "TODO" | "INPROGRESS" | "DONE";
+export type TaskStatus = 'TODO' | 'INPROGRESS' | 'DONE';
 
-export const allStatuses: TaskStatus[] = ["TODO", "INPROGRESS", "DONE"];
+export const allStatuses: TaskStatus[] = ['TODO', 'INPROGRESS', 'DONE'];
 
 export interface Task {
   id: string;

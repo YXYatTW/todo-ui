@@ -1,17 +1,42 @@
-import React, { useState } from "react";
-import { allStatuses, Task, TaskStatus } from "@/data/types";
-import StatusList from "@/components/StatusList";
-import styled from "styled-components";
-import { DndContext, DragEndEvent, DragOverlay } from "@dnd-kit/core";
-import { TaskCard } from "@/components/TaskCard/TaskCard";
+import React, { useEffect, useState } from 'react';
+import { gql } from '@apollo/client';
+import { useQuery } from '@apollo/client/react';
+import { allStatuses, Task, TaskStatus } from '@/data/types';
+import StatusList from '@/components/StatusList';
+import styled from 'styled-components';
+import { DndContext, DragEndEvent, DragOverlay } from '@dnd-kit/core';
+import { TaskCard } from '@/components/TaskCard/TaskCard';
 
 // import { arrayMove, SortableContext } from "@dnd-kit/sortable";
 
-import { demoTasks } from "@/data/demoTasks";
+const GET_TASKS = gql`
+  query getTasks {
+    tasks {
+      id
+      title
+      status
+      description
+      progress
+      completed
+      emoji
+      image
+      profileImage
+    }
+  }
+`;
+
+// const UPDATE_TASK_STATUS = gql``;
 
 const TaskBoard = () => {
-  const [tasks, setTasks] = useState(demoTasks as Task[]);
+  const { loading, error, data } = useQuery<{ tasks: Task[] }>(GET_TASKS);
+  console.log('==query data:==', data);
+  const tasks = data?.tasks ?? [];
   const [activeId, setActiveId] = useState<string | null>(null);
+
+  const updateTaskStatus = (taskId: string, newStatus: TaskStatus): Task[] => {
+    console.log(`Updating task ${taskId} to status ${newStatus}`); // TODO: replace by query
+    return [];
+  };
 
   const onDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -21,15 +46,13 @@ const TaskBoard = () => {
     const taskId = active.id;
     const newStatus = over.id as TaskStatus;
 
-    console.log("taskId ", taskId, " newStatus ", newStatus.toString());
-
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === taskId ? { ...task, status: newStatus } : task,
-      ),
-    );
-    console.log("onDragEnd ", newStatus);
+    console.log('taskId ', taskId, ' newStatus ', newStatus.toString());
+    updateTaskStatus(taskId.toString(), newStatus);
+    console.log('onDragEnd ', newStatus);
   };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
 
   return (
     <DndContext
@@ -45,7 +68,7 @@ const TaskBoard = () => {
             key={status}
             status={status}
             tasks={tasks.filter((task) => task.status === status)}
-            setTasks={setTasks}
+            // setTasks={updateTaskStatus}
           />
         ))}
       </Board>

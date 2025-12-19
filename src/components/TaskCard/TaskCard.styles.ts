@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const CardWrapper = styled.div<{ $isDragging?: boolean }>`
   display: inline-flex;
@@ -10,7 +10,7 @@ export const CardWrapper = styled.div<{ $isDragging?: boolean }>`
   background: #fff;
   box-shadow: 0 3px 0 0 #b2b8c4;
 
-  cursor: ${({ $isDragging }) => ($isDragging ? "grabbing" : "grab")};
+  cursor: ${({ $isDragging }) => ($isDragging ? 'grabbing' : 'grab')};
   user-select: none;
 `;
 

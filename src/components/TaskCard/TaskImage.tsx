@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import Image from "next/image";
+import React from 'react';
+import styled from 'styled-components';
+import Image from 'next/image';
 
 interface ImagePlaceHolderProps {
   image?: string;
@@ -20,7 +20,7 @@ function TaskImage({ image }: ImagePlaceHolderProps) {
       alt="task image"
       width={310}
       height={120}
-      style={{ objectFit: "cover", borderRadius: "6px" }}
+      style={{ objectFit: 'cover', borderRadius: '6px' }}
     />
   ) : (
     <ImagePlaceHolderStyled data-testid="task-image-placeholder" />

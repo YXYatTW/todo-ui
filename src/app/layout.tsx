@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Kanban App",
+  title: 'Kanban App',
   description:
-    "A simple Kanban board application built with Next.js and styled-components.",
+    'A simple Kanban board application built with Next.js and styled-components.',
 };
 
 export default function RootLayout({
