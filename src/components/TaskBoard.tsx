@@ -1,48 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { gql } from '@apollo/client';
 import { useMutation, useQuery } from '@apollo/client/react';
 import { allStatuses, Task, TaskStatus } from '@/data/types';
 import StatusList from '@/components/StatusList';
 import styled from 'styled-components';
 import { DndContext, DragEndEvent, DragOverlay } from '@dnd-kit/core';
 import { TaskCard } from '@/components/TaskCard/TaskCard';
+import { GET_TASKS, UPDATE_TASK_STATUS } from '@/graphql/task.gql';
 
 // import { arrayMove, SortableContext } from "@dnd-kit/sortable";
-
-const GET_TASKS = gql`
-  query getTasks {
-    tasks {
-      id
-      title
-      status
-      description
-      progress
-      completed
-      emoji
-      image
-      profileImage
-    }
-  }
-`;
-
-const UPDATE_TASK_STATUS = gql`
-  mutation updateTaskStatus($id: ID!, $input: UpdateTaskInput!) {
-    updateTask(id: $id, input: $input) {
-      id
-    }
-    #    {
-    #      id
-    #      title
-    #      status
-    #      description
-    #      progress
-    #      completed
-    #      emoji
-    #      image
-    #      profileImage
-    #    }
-  }
-`;
 
 const TaskBoard = () => {
   const { loading, error, data } = useQuery<{ tasks: Task[] }>(GET_TASKS);
