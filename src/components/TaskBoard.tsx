@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { gql } from '@apollo/client';
-import { useQuery } from '@apollo/client/react';
+import { useMutation, useQuery } from '@apollo/client/react';
 import { allStatuses, Task, TaskStatus } from '@/data/types';
 import StatusList from '@/components/StatusList';
 import styled from 'styled-components';
@@ -25,17 +25,39 @@ const GET_TASKS = gql`
   }
 `;
 
-// const UPDATE_TASK_STATUS = gql``;
+const UPDATE_TASK_STATUS = gql`
+  mutation updateTaskStatus($id: ID!, $input: UpdateTaskInput!) {
+    updateTask(id: $id, input: $input) {
+      id
+    }
+    #    {
+    #      id
+    #      title
+    #      status
+    #      description
+    #      progress
+    #      completed
+    #      emoji
+    #      image
+    #      profileImage
+    #    }
+  }
+`;
 
 const TaskBoard = () => {
   const { loading, error, data } = useQuery<{ tasks: Task[] }>(GET_TASKS);
+  const [updateTask] = useMutation(UPDATE_TASK_STATUS, {
+    refetchQueries: [GET_TASKS],
+  });
   console.log('==query data:==', data);
   const tasks = data?.tasks ?? [];
   const [activeId, setActiveId] = useState<string | null>(null);
 
-  const updateTaskStatus = (taskId: string, newStatus: TaskStatus): Task[] => {
-    console.log(`Updating task ${taskId} to status ${newStatus}`); // TODO: replace by query
-    return [];
+  const updateTaskStatus = (taskId: string, newStatus: TaskStatus) => {
+    console.log(`Updating task ${taskId} to status ${newStatus}`);
+    updateTask({
+      variables: { id: taskId, input: { status: newStatus } },
+    });
   };
 
   const onDragEnd = (event: DragEndEvent) => {
