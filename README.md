@@ -16,3 +16,17 @@ kill -9 <PID>
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+
+### Docker
+To run the application using Docker, follow these steps:
+1. Build the Docker image:
+   ```bash
+   docker build -t todo-ui .
+   ```
+
+2. Run the Docker container:
+   ```bash
+    docker run -p 3000:3000 todo-ui
+    ```
+   
